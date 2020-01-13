@@ -488,7 +488,7 @@ export function transliterateW(iW, type, flav, nms) {
         iW = iW.replace(/g/g, "г");
         iW = iW.replace(/d/g, "д");
         iW = iW.replace(/e/g, "е");
-        iW = iW.replace(/ě/g, "ѣ");
+        iW = iW.replace(/ě/g, "є"); // ѣ
         iW = iW.replace(/ž/g, "ж");
         iW = iW.replace(/z/g, "з");
         iW = iW.replace(/i/g, "и");
@@ -508,7 +508,7 @@ export function transliterateW(iW, type, flav, nms) {
         iW = iW.replace(/c/g, "ц");
         iW = iW.replace(/č/g, "ч");
         iW = iW.replace(/š/g, "ш");
-        iW = iW.replace(/y/g, "ы");
+        iW = iW.replace(/y/g, "ӣ"); // ы
         iW = iW.replace(/ę/g, "ѧ");
         iW = iW.replace(/ų/g, "ѫ");
         iW = iW.replace(/[ò’]/g, "ъ");
@@ -517,7 +517,7 @@ export function transliterateW(iW, type, flav, nms) {
         if (flav == "J") {
             iW = iW.replace(/ль/, "љ");
             iW = iW.replace(/нь/, "њ");
-            iW = iW.replace(/ѣ/, "е");
+            iW = iW.replace(/є/, "е"); // ѣ
         }
         else if (flav == "S") {
             iW = iW.replace(/ђ/, "дж");
@@ -1420,10 +1420,10 @@ function nmsify(iW) {
     iW = iW.replace(/ч/g, "č");
     iW = iW.replace(/ш/g, "š");
     iW = iW.replace(/щ/g, "šč");
-    iW = iW.replace(/[ыꙑ]/g, "y");
+    iW = iW.replace(/[ыꙑӣ]/g, "y"); // +ӣ
     iW = iW.replace(/ъ/g, "q");
     iW = iW.replace(/ў/g, "ù");
-    iW = iW.replace(/ѣ/g, "ě");
+    iW = iW.replace(/[ѣє]/g, "ě"); // +є
     iW = iW.replace(/ѧ/g, "ę");
     iW = iW.replace(/ѫ/g, "ų");
     iW = iW.replace(/ѳ/g, "þ");

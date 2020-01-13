@@ -2,7 +2,7 @@
   "mainTitle": {
     "en": "Interslavic dictionary",
     "isv-Latn": "Medžuslovjansky slovnik",
-    "isv-Cyrl": "Меджусловјанскы словник",
+    "isv-Cyrl": "Меджусловјанскӣ словник",
     "ru": "Межславянский словарь",
     "uk": "Міжслов'янський словник",
     "be": "Міжславянскі слоўнік",
@@ -50,7 +50,7 @@
   "settingsTitle": {
     "en": "Settings",
     "isv-Latn": "Nastrojky",
-    "isv-Cyrl": "Настројкы",
+    "isv-Cyrl": "Настројкӣ",
     "ru": "Настройки",
     "uk": "Налаштування",
     "be": "Налады",
@@ -82,7 +82,7 @@
   "verified": {
     "en": "Verified",
     "isv-Latn": "Prověreno",
-    "isv-Cyrl": "Провѣрено",
+    "isv-Cyrl": "Провєрено",
     "ru": "Проверено",
     "uk": "Перевірено",
     "be": "Праверана",
@@ -98,7 +98,7 @@
   "autoTranslation": {
     "en": "Auto-translation",
     "isv-Latn": "Avtoprěvod",
-    "isv-Cyrl": "Автопрѣвод",
+    "isv-Cyrl": "Автопрєвод",
     "ru": "Автоперевод",
     "uk": "Автоматичний переклад",
     "be": "Аўтаматычны пераклад",
@@ -114,7 +114,7 @@
   "showForms": {
     "en": "Show forms",
     "isv-Latn": "Pokaži formy",
-    "isv-Cyrl": "Покажи формы",
+    "isv-Cyrl": "Покажи формӣ",
     "ru": "Словоформы",
     "uk": "Словоформи",
     "be": "Словаформы",
@@ -130,7 +130,7 @@
   "interfaceLanguage": {
     "en": "Interface language",
     "isv-Latn": "Jezyk interfejsa",
-    "isv-Cyrl": "Језык интерфејса",
+    "isv-Cyrl": "Језӣк интерфејса",
     "ru": "Язык интерфейса",
     "uk": "Мова інтерфейсу",
     "be": "Мова інтэрфейсу",
@@ -162,7 +162,7 @@
   "aboutTitle": {
     "en": "About",
     "isv-Latn": "O programě",
-    "isv-Cyrl": "О програмѣ",
+    "isv-Cyrl": "О програмє",
     "ru": "О приложении",
     "uk": "Про застосунок",
     "be": "Аб праграме",
@@ -210,7 +210,7 @@
   "searchTypeEntire": {
     "en": "Entire",
     "isv-Latn": "Cělo",
-    "isv-Cyrl": "Цѣло",
+    "isv-Cyrl": "Цєло",
     "ru": "Целиком",
     "uk": "Повністю",
     "be": "Цэлае",
@@ -290,7 +290,7 @@
   "aboutSmallTitle": {
     "en": "Interslavic language dictionary",
     "isv-Latn": "Slovnik medžuslovjanskogo jezyka",
-    "isv-Cyrl": "Словник меджусловјанского језыка",
+    "isv-Cyrl": "Словник меджусловјанского језӣка",
     "ru": "Словарь межславянского языка",
     "uk": "Словник міжслов'янської мови",
     "be": "Слоўнік міжславянскае мовы",
@@ -306,7 +306,7 @@
   "aboutJoinText": {
     "en": "Please join the work to improve word translations for your native language!",
     "isv-Latn": "Prosimo, prijednjajte se k rabotě nad ulěpšenjem prěvodov na vaš rodny jezyk!",
-    "isv-Cyrl": "Просимо, приједньајте се к работѣ над улѣпшенјем прѣводов на ваш родны језык!",
+    "isv-Cyrl": "Просимо, приједньајте се к работє над улєпшенјем прєводов на ваш роднӣ језӣк!",
     "ru": "Присоединяйтесь к работе над улучшением переводов слов на ваш родной язык!",
     "uk": "Запрошуємо долучитися до роботи з поліпшення перекладів слів вашою рідною мовою!",
     "be": "Далучайцеся да працы над паляпшэннем перакладаў слоў на ваш родную мову!",
@@ -354,7 +354,7 @@
   "aboutTranslationsTable": {
     "en": "Table with translations",
     "isv-Latn": "Tabela s prěvodami",
-    "isv-Cyrl": "Табела с прѣводами",
+    "isv-Cyrl": "Табела с прєводами",
     "ru": "Таблица с переводами",
     "uk": "Таблиця з перекладами",
     "be": "Табліца з перакладамі",
@@ -370,7 +370,7 @@
   "aboutSourceCode": {
     "en": "Source code (GitHub):",
     "isv-Latn": "Izhodny kod (GitHub):",
-    "isv-Cyrl": "Изходны код (GitHub):",
+    "isv-Cyrl": "Изходнӣ код (GitHub):",
     "ru": "Исходный код (GitHub):",
     "uk": "Вихідний код (GitHub):",
     "be": "Зыходны код (GitHub):",
@@ -418,7 +418,7 @@
   "aboutAuthors": {
     "en": "Authors of English and Polish translations: Jan van Steenbergen and Michał Swat.",
     "isv-Latn": "Avtory anglijskogo i poljskogo prěvoda sut Jan van Steenbergen i Mihal Svat.",
-    "isv-Cyrl": "Авторы англијского и польского прѣвода сут Јан ван Стеенберген и Михал Сват.",
+    "isv-Cyrl": "Авторӣ англијского и польского прєвода сут Јан ван Стеенберген и Михал Сват.",
     "ru": "Авторы английского и польского переводов: Ян ван Стенберген и Михал Сват.",
     "uk": "Автори англійського та польського перекладів: Ян ван Cтеенберґен та Міхал Сват.",
     "be": "Аўтары англійскіх і польскіх перакладаў: Ян ван Стэенберген ды Міхал Сват.",
@@ -434,7 +434,7 @@
   "notVerifiedText": {
     "en": "Search results contain inaccurate automatic translations. Currently, part% of the words of the selected language are verified. If you speak this language, join the work on improving translations!",
     "isv-Latn": "Rezultaty iskanja sodržajut netočne avtomatične prěvody. Sejčasno jest prověreno part% slov izbranogo jezyka. Ako li znajete tutoj jezyk, prijednjajte se k rabotě nad ulěpšenjem prěvodov!",
-    "isv-Cyrl": "Резултаты исканја содржајут неточне автоматичне прѣводы. Сејчасно јест провѣрено part% слов избраного језыка. Ако ли знајете тутој језык, приједньајте се к работѣ над улѣпшенјем прѣводов!",
+    "isv-Cyrl": "Резултатӣ исканја содржајут неточне автоматичне прєводӣ. Сејчасно јест провєрено part% слов избраного језӣка. Ако ли знајете тутој језӣк, приједньајте се к работє над улєпшенјем прєводов!",
     "ru": "Результаты поиска содержат неточные автоматические переводы. На данный момент проверено part% слов выбранного языка. Если вы знаете этот язык, присоединяйтесь к работе над улучшением переводов!",
     "uk": "Результати пошуку містять неточні автоматичні переклади. Нині part% слів обраної мови є перевіреними . Якщо ви знаєте цю мову, долучайтесь до роботи з поліпшення перекладів!",
     "be": "Вынікі пошуку ўтрымліваюць недакладныя аўтаматычныя пераклады. На дадзены момант праверана part% слоў абранага мовы. Калі вы ведаеце гэтую мову, далучайцеся да працы над паляпшэннем перакладаў!",
@@ -450,7 +450,7 @@
   "notVerifiedTableLinkText": {
     "en": "The worksheet is located at this link.",
     "isv-Latn": "Rabotna tabela je uměščena на tutom linku.",
-    "isv-Cyrl": "Работна табела је умѣшчена на тутом линку.",
+    "isv-Cyrl": "Работна табела је умєшчена на тутом линку.",
     "ru": "Рабочая таблица расположена по этой ссылке.",
     "uk": "Робоча таблиця знаходиться за цим посиланням.",
     "be": "Працоўная табліца знаходзіцца па гэтай спасылцы.",
@@ -466,7 +466,7 @@
   "nonCommercialDisclaimer": {
     "en": "This is a non-profit open source project. We are doing it for free, just for fun. We don't make money from it and we don't pay for help.",
     "isv-Latn": "To je bezkoristny projekt s otvorjenym izhodnym kodom. Dělajemo go bezplatno dlja prijemnosti. Ne zarabotyvajemo na ovom groši i ne platimo za pomoč.",
-    "isv-Cyrl": "То је безкористны пројект с отворјеным изходным кодом. Дѣлајемо го безплатно дльа пријемности. Не заработывајемо на овом гроши и не платимо за помоч.",
+    "isv-Cyrl": "То је безкористнӣ пројект с отворјенӣм изходнӣм кодом. Дєлајемо го безплатно дльа пријемности. Не заработӣвајемо на овом гроши и не платимо за помоч.",
     "ru": "Это некоммерческий проект с открытым исходным кодом. Мы занимаемся им бесплатно для удовольствия. Мы не зарабатываем на этом деньги и не платим за помощь.",
     "uk": "Це некомерційний проєкт з відкритим вихідним кодом. Ми створюємо його безкоштовно задля задоволення. Ми не заробляємо на ньому гроші і не платимо за допомогу.",
     "be": "Гэта некамерцыйны праект з адкрытым зыходным кодам. Мы робім тое бясплатна, дзеля задавальнення. Мы не зарабляем на гэтым грошы і не плацім за дапамогу.",
@@ -482,7 +482,7 @@
   "gdprAlert": {
     "en": "This site uses cookies for analytics:",
     "isv-Latn": "Tutoj sajt koristaje kuki (cookies) dlja analitiky:",
-    "isv-Cyrl": "Тутој сајт користаје куки (cookies) дльа аналитикы:",
+    "isv-Cyrl": "Тутој сајт користаје куки (cookies) дльа аналитикӣ:",
     "ru": "Этот сайт использует куки для аналитики:",
     "uk": "Цей сайт використовує реп'яшки (cookies) для аналітики:",
     "be": "Гэты сайт выкарыстоўвае файлы кукіс для аналітыкі:",
