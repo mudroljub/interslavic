@@ -66,21 +66,12 @@ class Grammar extends React.PureComponent {
                     <Card title={titles.abeceda} id={'abeceda'}>
                         <Table data={tables.tableAbeceda} />
                         <Text>
-                            {`V latinici i kirilici jest možno vměsto {y}[b,B] pisati prosto {i}[b,B] i vměsto {ě}[g,B] pisati prosto {e}[g,B].
+                            {`V latinici i kirilici jest možno vměsto {y}[b,B] ({ӣ}[b,B]) pisati prosto {i}[b,B] ({и}[b,B])  i vměsto {ě}[g,B] ({є}[g,B]) pisati prosto {e}[g,B] ({е}[g,B]).
                                 {Napriměr:}[i] {r{y}[b]ba→r{i}[b]ba}[B], {r{ě}[g]ka→r{e}[g]ka}[B]`}
                         </Text>
                         <Text>
                             {`Palatizacija i eufonija: {{k}[k]→{č}[k], {h}[k]→{š}[k], {g}[k]→{ž}[k], {c}[k]{j}[p]→{č}[k], {s}[k]{j}[p]→{š}[k], {zj}[k]→{ž}[k]}[B]
                                 {Napriměr:}[i] {Grě{k}[k]→grě{č}[k]sky}[B], {pra{h}[k]→pra{š}[k]ny}[B], {Bo{g}[k]→bo{ž}[k]sky}[B], {pro{s}[k]{ju}[p]→pro{š}[k]{u}[p]}[B]`}
-                        </Text>
-                        <Text indent={'0.5rem'}>
-                            {`{1.}[B,m] Staroslovjansko jatj={ѣ}[g,B]={ě}[g,B] se može pisati bez diakritiky kako {ie}[g,B] ili prosto {e}[g,B]. Podobno {č}[k,B], {š}[k,B], {ž}[k,B] se mogut pisati kako {cz}[k,B], {sz}[k,B], {zs}[k,B].`}
-                        </Text>
-                        <Text indent={'0.5rem'}>
-                            {`{2.}[B,m] Staroslovjansko {щ}[k,B] jest na početkah slov kako {šč}[k,B], ale potom kako {č}[k,B] ({Napriměr:}[i] {ščit}[k,B], {pomoč}[k,B], {občina}[k,B], {svěča}[k,B])`}
-                        </Text>
-                        <Text indent={'0.5rem'}>
-                            {`{3.}[B,m] V kirilici možno koristiti ligatury: {шч}[k,B] → {щ}[k,B], {ьу}[k,B]/{ју}[k,B] → {ю}[k,B], {ьа}[k,B]/{ја}[k,B] → {я}[k,B]`}
                         </Text>
                         <Text>
                             {`Medžuslovjansky jezyk drži morfologično pravopisanje. Koren slov se piše ravno v vsih padežah. Anglijske, latinske i grečske slova imajut svoje originalno pravopisanje ale s medžuslovjanskymi zakončenjami ({arhitektur}[k,B]{a}[k], {biolog}[k,B]{ija}[k] ...).`}
