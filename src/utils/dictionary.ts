@@ -56,7 +56,7 @@ export const validFields = [
     'sl',
     'de',
     // 'id',
-    // 'id',
+    // 'frequency',
 ];
 
 function getWordForms(item) {
@@ -135,7 +135,8 @@ class DictionaryClass {
         }
         this.header = validFields;
         this.langsList = this.header.filter(
-            (item) => (['partOfSpeech', 'type', 'sameInLanguages', 'genesis', 'addition', 'id'].indexOf(item) === -1),
+            (item) => (['partOfSpeech', 'type', 'sameInLanguages', 'genesis', 'addition', 'id',
+                'frequency'].indexOf(item) === -1),
         );
         this.headerIndexes = new Map(this.header.map((item, i: number) => [this.header[i], i]));
 
@@ -145,7 +146,7 @@ class DictionaryClass {
             this.words.forEach((item) => {
                 const isvWord = this.getField(item, 'isv');
                 const add = this.getField(item, 'addition')
-                    .replace(/[\(\) ]/g, '')
+                    .replace(/[() ]/g, '')
                     .split(/[,;/]/)
                 ;
                 this.isvToLatinMap.set(isvWord, normalize(getLatin(isvWord, '3')));
