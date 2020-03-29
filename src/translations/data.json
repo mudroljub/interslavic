@@ -134,6 +134,21 @@
     "mk": "Прикажи форми",
     "bg": "Всички форми"
   },
+  "declensions": {
+    "en": "Declension",
+    "isv": "Sklonjenje",
+    "ru": "Склонение"
+  },
+  "conjugation": {
+    "en": "Conjugation",
+    "isv": "Spreženje",
+    "ru": "Спряжение"
+  },
+  "translates": {
+    "en": "Translates",
+    "isv": "Prěklady",
+    "ru": "Переводы"
+  },
   "interfaceLanguage": {
     "en": "Interface language",
     "isv": "Jezyk interfejsa",

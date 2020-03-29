@@ -14,8 +14,9 @@ interface IInputTextPropsInternal {
 
 const InputTextInternal: React.FC<IInputTextPropsInternal> =
     ({searchLanguage, spellCheck, fromText, changeFromText}) => (
-        <div className={'input-group input-group-lg inputText'}>
+        <div className={'inputText'}>
             <input
+                className={'fromText'}
                 type='search'
                 lang={searchLanguage}
                 autoCapitalize='off'
@@ -23,13 +24,12 @@ const InputTextInternal: React.FC<IInputTextPropsInternal> =
                 autoCorrect={spellCheck ? 'on' : 'off'}
                 spellCheck={spellCheck}
                 placeholder={t('typeWordLabel')}
-                className={'form-control fromText'}
                 value={fromText}
                 onChange={(e) => changeFromText(e.target.value)}
             />
             <button
-                type={'reset'}
                 className={'removeButton'}
+                type={'reset'}
                 aria-label={'Clear input'}
                 disabled={fromText.length === 0}
                 onClick={() => changeFromText('')}
@@ -53,4 +53,4 @@ function mapStateToProps({lang, fromText}) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(InputTextInternal);
+export const InputText = connect(mapStateToProps, mapDispatchToProps)(InputTextInternal);

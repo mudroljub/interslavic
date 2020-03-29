@@ -1,4 +1,5 @@
 import DetailModal from 'components/DetailModal';
+import TranslateModal from 'components/TranslateModal';
 import GDPR from 'components/GDPR';
 import { Header } from 'components/Header';
 import { Loader } from 'components/Loader';
@@ -28,6 +29,7 @@ class Main extends React.Component<IMainProps> {
                 <Loader title={t('loading')} isLoading={this.props.isLoading}/>
                 <Header/>
                 <DetailModal/>
+                <TranslateModal/>
                 <Router/>
             </>
         );

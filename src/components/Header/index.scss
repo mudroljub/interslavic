@@ -1,10 +1,6 @@
-.logo {
-  margin-right: 10px;
-}
-
-$lineWidth: 0.2rem;
-$lineLength: 1.6rem;
-$baseMargin: 0.5rem;
+$lineWidth: 3px;
+$lineLength: 25px;
+$baseMargin: 8px;
 $animationDuration: 0.2s;
 
 @mixin changeState {
@@ -15,138 +11,159 @@ $animationDuration: 0.2s;
   ;
 }
 
-.showMenu {
-  &:focus {
-    outline:0;
-  }
-  border: 1px solid #555;
-  border-radius: 0.25rem;
-  box-sizing: content-box;
-  padding: 0.2rem;
+.header {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  background-color: #343a40;
+  padding: 8px 16px;
+  align-items: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, .15);
   z-index: 10;
 
-  background: none;
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
+  &__show-menu-button {
+    display: none;
+    border: 1px solid #555;
+    border-radius: 4px;
+    box-sizing: content-box;
+    padding: 3px;
+    z-index: 10;
 
-  width: $lineLength;
-  height: $lineLength;
+    background: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
 
-  &>span {
-    display: block;
     width: $lineLength;
-    height: $lineWidth;
-    background-color: #fff;
-    position: relative;
-    @include changeState;
-    &::before, &::after {
-      @include changeState;
+    height: $lineLength;
+
+    &:focus {
+      outline:0;
+    };
+
+    &>.lines {
       display: block;
-      content: '';
-      position: absolute;
       width: $lineLength;
       height: $lineWidth;
       background-color: #fff;
-    }
-    &::after {
-      margin-top: -$baseMargin;
-    }
-    &::before {
-      margin-top: $baseMargin;
-    }
-  }
+      position: relative;
+      @include changeState;
 
-  &[data-active='true'] {
-    &>span {
-      background-color: rgba(0, 0, 0, 0);
       &::before, &::after {
-        margin-top: 0;
+        @include changeState;
+        display: block;
+        content: '';
+        position: absolute;
+        width: $lineLength;
+        height: $lineWidth;
+        background-color: #fff;
       }
+
       &::after {
-        transform: rotate(-45deg);
+        margin-top: -$baseMargin;
       }
+
       &::before {
-        transform: rotate(45deg);
+        margin-top: $baseMargin;
       }
-    }
-  }
-}
 
-.navMenu {
-  max-height: 0;
-  opacity: 0;
-  transition: max-height $animationDuration linear, opacity $animationDuration linear;
-  pointer-events: none;
-}
+      &.active {
+        background-color: rgba(0, 0, 0, 0);
 
-.navMenu.menuIsVisible {
-  max-height: 500px;
-  opacity: 1;
-  pointer-events: all;
-}
+        &::before, &::after {
+          margin-top: 0;
+        }
 
-.navbar-brand {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: calc(100% - 3.5rem);
-  img {
-    cursor: pointer;
-  }
-}
+        &::after {
+          transform: rotate(-45deg);
+        }
 
-.header {
-  z-index: 90;
-}
-
-@media (min-width: 1050px) {
-  #app .header {
-    padding-left: calc(50% - 510px);
-    padding-right: calc(50% - 510px);
-  }
-}
-
-@media (max-width: 599px) {
-  .navMenu {
-    width: 100%;
-    ul {
-      width: 100%;
-      li {
-        width: 100%;
-        button {
-          width: 100%;
-          text-align: center;
+        &::before {
+          transform: rotate(45deg);
         }
       }
     }
   }
-}
 
-@media (min-width: 720px) {
-  .showMenu {
-    display: none;
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-  .navMenu {
-    pointer-events: all;
-    opacity: 1;
-    max-height: initial;
-    ul {
-      width: 100%;
-      flex-direction: row;
-      li {
-        margin-left: 10px;
-      }
+
+  &__menu-item {
+    cursor: pointer;
+    margin-left: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #999;
+    white-space: nowrap;
+    transition: color $animationDuration linear;
+
+    &.active {
+      color: #fff;
+    }
+
+    &:hover {
+      color: #ddd;
     }
   }
-  .navbar-brand {
-    width: auto;
+
+  &__logo {
+    font-family: 'Libre Baskerville', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 5px 0;
+    white-space: nowrap;
+    margin: 0;
+
+    &-img {
+      margin-right: 10px;
+    }
   }
 }
 
-@media ( max-width: 400px) {
-  #app .navbar-brand {
-    font-size:5vw;
+@media (max-width: 630px) {
+  .header {
+    flex-wrap: wrap;
+
+    &__menu {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      top: 54px;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height $animationDuration linear, opacity $animationDuration linear;
+      pointer-events: none;
+
+      &-item {
+        line-height: 40px;
+        //height: 40px
+      }
+
+      &.active {
+        max-height: 500px;
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+
+    &__show-menu-button {
+      display: block;
+    }
+  }
+}
+
+@media (min-width: 1050px) {
+  .header {
+    padding-left: calc(50% - 510px);
+    padding-right: calc(50% - 510px);
   }
 }

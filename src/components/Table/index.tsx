@@ -9,7 +9,7 @@ interface ITableProps {
 export default class extends React.Component<ITableProps> {
     public render() {
         return (
-            <table className={'customTable'}>
+            <table className={'table'}>
                 <tbody>{this.renderBody()}</tbody>
             </table>
         );

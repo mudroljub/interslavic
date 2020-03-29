@@ -1,143 +1,64 @@
-import { setDetailAction, showDetailAction } from 'actions';
+import {
+    showDetailAction,
+    setDetailAction,
+    showTranslatesAction,
+    setTranslatesAction,
+} from 'actions';
 import { connect } from 'connect';
 import { worksheetUrl } from 'consts';
 import * as React from 'react';
 import { t } from 'translations';
 import { Dictionary, ITranslateResult } from 'utils/dictionary';
-import { getPartOfSpeech } from 'utils/wordDetails';
 import './index.scss';
+import { ResultsCard } from 'components/ResultsCard';
+import { IAlphabets, IMainState, ILang } from 'reducers';
 
-interface IResultsProps {
+interface IResultsInternalProps {
     results: ITranslateResult[];
-    showDetail: () => void;
+    showDetail: (itemIndex: number) => void;
+    showTranslates: (itemIndex: number) => void;
     alphabets: any;
-    setDetail: (itemIndex: number) => void;
-    lang: {
-        from: string;
-        to: string;
-    };
+    lang: ILang;
 }
 
-class Results extends React.Component<IResultsProps> {
-    public renderResultItem(item: ITranslateResult, i: number) {
-        return (
-            <div className={'card resultCard shadow'} tabIndex={0} key={i}>
-                {this.renderCheked(item)}
-                {this.renderFormsButton(item, i)}
-                <div className={'card-body'}>
-                    <h5 className={'card-title'}>
-                        {this.props.lang.to === 'isv' ?
-                            <>{this.renderOriginal(item, this.props.alphabets)}&nbsp;{this.renderIpa(item)}</> :
-                            <>{this.renderTranslate(item)}</>
-                        }
-                    </h5>
-                    <h6 className={'card-subtitle mb-2 text-muted'}>{item.details}</h6>
-                    <p className={'card-text'}>
-                        {this.props.lang.to === 'isv' ?
-                            <>{this.renderTranslate(item)}</> :
-                            <>{this.renderOriginal(item, this.props.alphabets)}&nbsp;{this.renderIpa(item)}</>
-                        }
-                    </p>
-                </div>
-            </div>
-        );
-    }
-    public render() {
-        const { results } = this.props;
+const ResultsInternal: React.FC<IResultsInternalProps> =
+    ({results, lang, alphabets, showDetail, showTranslates}: IResultsInternalProps) => {
         if (!results || !results.length) {
-            return '';
+            return null;
         }
 
-        const lang = this.props.lang.from === 'isv' ? this.props.lang.to : this.props.lang.from;
-        const translatedPart = Dictionary.getPercentsOfTranslated()[lang];
+        const translatedPart = Dictionary.getPercentsOfTranslated()[lang.from === 'isv' ? lang.to : lang.from];
 
         return (
             <div className={'results'}>
-                <>{results.map((item: ITranslateResult, i) => this.renderResultItem(item, i))}</>
+                <>{results.map((item: ITranslateResult, index) => (
+                    <ResultsCard
+                        item={item}
+                        alphabets={alphabets}
+                        key={index}
+                        lang={lang.to}
+                        onShowDetail={() => {
+                            showDetail(index);
+                        }}
+                        onShowTranslates={() => {
+                            showTranslates(index);
+                        }}
+                        onFavorite={() => {
+                            console.log('!');
+                        }}
+                    />
+                ))}</>
                 {results.some((item) => !item.checked) &&
-                <div className={'messageForUser'}>
+                <div className={'results__message-for-users'}>
                     {t('notVerifiedText').replace('part%', `${translatedPart}%`)}
                     {` `}
                     <a target={'_blank'} href={worksheetUrl}>{t('notVerifiedTableLinkText')}</a>
                 </div> }
             </div>
         );
-    }
-    private renderFormsButton(item, i) {
-        const pos = getPartOfSpeech(item.details);
-        switch (pos) {
-            case 'noun':
-            case 'numeral':
-            case 'pronoun':
-                if (item.original.includes(' ') && item.original.match(/[^,] [^\[]/)) { return ''; }
-            case 'adjective':
-            case 'verb':
-                return (
-                    <button
-                        type={'button'}
-                        aria-label={'Show forms'}
-                        className={'btn btn-sm btn-link showForms'}
-                        onClick={() => {
-                            this.props.setDetail(i);
-                            this.props.showDetail();
-                        }}
-                    >
-                        {t('showForms')}
-                    </button>
-                );
-            default:
-                return '';
-        }
-    }
-    private renderCheked({checked}) {
-        if (checked) {
-            return <span className={'badge checked badge-success'}>{t('verified')}</span>;
-        } else {
-            return <span className={'badge checked badge-danger'}>{t('autoTranslation')}</span>;
-        }
-    }
-    private renderOriginal(item, alphabets) {
-        let latin = item.original;
-        if (item.add) {
-            latin += ` ${item.add}`;
-        }
-        let cyrillic = item.originalCyr;
-        if (item.addCyr) {
-            cyrillic += ` ${item.addCyr}`;
-        }
-        let gla = item.originalGla;
-        if (item.addGla) {
-            gla += ` ${item.addGla}`;
-        }
+    };
 
-        const result = [];
-
-        if (alphabets.latin) {
-            result.push(latin);
-        }
-
-        if (alphabets.cyrillic) {
-            result.push(cyrillic);
-        }
-
-        if (alphabets.glagolitic) {
-            result.push(gla);
-        }
-
-        return result.join('/');
-    }
-    private renderTranslate(item) {
-        return item.translate;
-    }
-    private renderIpa(item) {
-        if (item.ipa) {
-            return <span className={'text-muted'}>[{item.ipa}]</span>;
-        }
-        return '';
-    }
-}
-
-function mapStateToProps({results, lang, alphabets}) {
+function mapStateToProps({results, lang, alphabets}: IMainState) {
     return {
         results,
         lang,
@@ -147,9 +68,15 @@ function mapStateToProps({results, lang, alphabets}) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        setDetail: (i) => dispatch(setDetailAction(i)),
-        showDetail: () => dispatch(showDetailAction()),
+        showDetail: (i) => {
+            dispatch(setDetailAction(i));
+            dispatch(showDetailAction());
+        },
+        showTranslates: (i) => {
+            dispatch(setTranslatesAction(i));
+            dispatch(showTranslatesAction());
+        },
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Results);
+export const Results = connect(mapStateToProps, mapDispatchToProps)(ResultsInternal);

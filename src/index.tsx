@@ -7,7 +7,7 @@ import { setInitialPage } from 'routing';
 import { getPageFromPath } from 'routing';
 import { setLang } from 'translations';
 import Main from './components/Main';
-import './customBootstrap.scss';
+import './index.scss';
 import { Dictionary } from './utils/dictionary';
 
 /* tslint:disable */
@@ -73,6 +73,7 @@ export const defaultState: IMainState = {
     page: 'dictionary',
     isLoading: true,
     isDetailModal: false,
+    isTranslatesModal: false,
     searchExpanded: false,
     rawResults: [],
     results: [],

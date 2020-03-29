@@ -4,11 +4,19 @@ import { getPathFromPage, goToPage } from 'routing';
 import { setLang } from 'translations';
 import { Dictionary, ITranslateResult } from 'utils/dictionary';
 
+export interface IAlphabets {
+    latin: boolean;
+    cyrillic: boolean;
+    glagolitic: boolean;
+}
+
+export interface ILang {
+    from: string;
+    to: string;
+}
+
 export interface IMainState {
-    lang: {
-        from: string;
-        to: string;
-    };
+    lang: ILang;
     interfaceLang: string;
     isvSearchLetters: {
         from: string[];
@@ -21,16 +29,14 @@ export interface IMainState {
     page: string;
     isLoading: boolean;
     isDetailModal: boolean;
+    isTranslatesModal: boolean;
     searchExpanded: boolean;
     alphabetType: string;
     detailModal?: number;
+    translatesModal?: number;
     rawResults: string[][];
     results: ITranslateResult[];
-    alphabets: {
-        latin: boolean;
-        cyrillic: boolean;
-        glagolitic: boolean;
-    };
+    alphabets: IAlphabets;
 }
 
 export function mainReducer(state: IMainState, { type, data }) {
@@ -164,10 +170,15 @@ export function mainReducer(state: IMainState, { type, data }) {
                 ...state,
                 alphabetType: data,
             };
-        case ActionTypes.DETAIL_IS_VISIBLE:
+        case ActionTypes.DETAIL_IS_VISIBLE_MODAL:
             return {
                 ...state,
                 isDetailModal: data,
+            };
+        case ActionTypes.TRANSLATES_IS_VISIBLE_MODAL:
+            return {
+                ...state,
+                isTranslatesModal: data,
             };
         case ActionTypes.SET_SEARCH_EXPAND:
             return {
@@ -180,10 +191,15 @@ export function mainReducer(state: IMainState, { type, data }) {
                 ...state,
                 interfaceLang: data,
             };
-        case ActionTypes.SET_DETAIL:
+        case ActionTypes.SET_DETAIL_MODAL:
             return {
                 ...state,
                 detailModal: data,
+            };
+        case ActionTypes.SET_TRANSLATES_MODAL:
+            return {
+                ...state,
+                translatesModal: data,
             };
         case ActionTypes.SET_ALPHABETS:
             return {

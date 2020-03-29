@@ -8,14 +8,16 @@ export enum ActionTypes {
     SET_PAGE = 'SET_PAGE',
     SET_INTERFACE_LANG = 'SET_INTERFACE_LANG',
     IS_LOADING = 'IS_LOADING',
-    SET_DETAIL = 'SET_DETAIL',
-    DETAIL_IS_VISIBLE = 'DETAIL_IS_VISIBLE',
     SET_SEARCH_EXPAND = 'SET_SEARCH_EXPAND',
     ALPHABET_TYPE = 'ALPHABET_TYPE',
     RUN_SEARCH = 'RUN_SEARCH',
     CHANGE_ISV_SEARCH_LETTERS = 'CHANGE_ISV_SEARCH_LETTERS',
     POS_FILTER = 'POS_FILTER',
     SET_ALPHABETS = 'SET_ALPHABETS',
+    SET_TRANSLATES_MODAL = 'SET_TRANSLATES_MODAL',
+    TRANSLATES_IS_VISIBLE_MODAL = 'TRANSLATES_IS_VISIBLE_MODAL',
+    SET_DETAIL_MODAL = 'SET_DETAIL_MODAL',
+    DETAIL_IS_VISIBLE_MODAL = 'DETAIL_IS_VISIBLE_MODAL',
 }
 
 export function langAction(data: {from: string, to: string}) {
@@ -27,14 +29,28 @@ export function langAction(data: {from: string, to: string}) {
 
 export function setDetailAction(data: number) {
     return {
-        type: ActionTypes.SET_DETAIL,
+        type: ActionTypes.SET_DETAIL_MODAL,
         data,
     };
 }
 
 export function showDetailAction() {
     return {
-        type: ActionTypes.DETAIL_IS_VISIBLE,
+        type: ActionTypes.DETAIL_IS_VISIBLE_MODAL,
+        data: true,
+    };
+}
+
+export function setTranslatesAction(data: number) {
+    return {
+        type: ActionTypes.SET_TRANSLATES_MODAL,
+        data,
+    };
+}
+
+export function showTranslatesAction() {
+    return {
+        type: ActionTypes.TRANSLATES_IS_VISIBLE_MODAL,
         data: true,
     };
 }
@@ -48,7 +64,14 @@ export function setAlphabetTypeAction(data: number) {
 
 export function hideDetailAction() {
     return {
-        type: ActionTypes.DETAIL_IS_VISIBLE,
+        type: ActionTypes.DETAIL_IS_VISIBLE_MODAL,
+        data: false,
+    };
+}
+
+export function hideTranslatesAction() {
+    return {
+        type: ActionTypes.TRANSLATES_IS_VISIBLE_MODAL,
         data: false,
     };
 }

@@ -62,8 +62,8 @@ class DetailModal extends React.Component<IDetailModalProps> {
 
         return (
             <ModalDialog
-                className={'customModal'}
-                wrapperClassName={'modal-content customModalContent'}
+                className={'details-modal'}
+                wrapperClassName={'modal-content'}
                 open={!!contents}
                 onOpen={this.onDialogOpened}
                 onClose={this.close}
@@ -82,21 +82,21 @@ class DetailModal extends React.Component<IDetailModalProps> {
 
         return (
             <>
-                <header className={'modal-header'}>
+                <div className={'details-modal__header'}>
                     {this.renderTitle(pos)}
                     <button
                         ref={this.closeButtonRef}
-                        className={'close'}
+                        className={'details-modal__header-close'}
                         onClick={this.close}
                         aria-label={'Close'}
                     >
-                        <span aria-hidden={'true'}>&times;</span>
+                        &times;
                     </button>
-                </header>
-                <div className={'modal-body'}>
+                </div>
+                <div className={'details-modal__body'}>
                     {this.renderBody()}
                 </div>
-                <footer className={'modal-footer'}>
+                <footer className={'details-modal__footer'}>
                     <LineSelector
                         options={alphabetType.filter(({value}) => this.props.alphabets[value]).map((item) => ({
                             name: t(item.name),
@@ -159,9 +159,9 @@ class DetailModal extends React.Component<IDetailModalProps> {
                 }
         }
         return (
-            <h5 className={'modal-title'}>
-                {this.formatStr(word)} {this.formatStr(add)} <i>({arr.join(', ')})</i>
-            </h5>
+            <span className={'details-modal__header-title'}>
+                {this.formatStr(word)} {this.formatStr(add)} <span className={'details'}>({arr.join(', ')})</span>
+            </span>
         );
     }
 

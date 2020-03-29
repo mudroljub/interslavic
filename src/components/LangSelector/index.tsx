@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Selector } from '../Selector';
 import './index.scss';
 
-interface ILangSelectorProps {
+interface ILangSelectorInternalProps {
     from: string;
     to: string;
     onSelect: (from: string, to: string) => void;
@@ -65,53 +65,63 @@ const languageList = [
     },
 ];
 
-class LangSelector extends React.Component<ILangSelectorProps> {
-    public render() {
-        return (
-            <div className={'input-group langSelect'}>
-                {this.renderLangPart('from')}
-                <div className={'langItem changeDir'}>
-                    <button
-                        type={'button'}
-                        style={{textDecoration: 'none'}}
-                        aria-label={'Change translation direction'}
-                        className={'btn btn-link changeLang customFocusRing'}
-                        onClick={() => this.props.onSelect(this.props.to, this.props.from)}
-                    >
-                        ⇄
-                    </button>
-                </div>
-                {this.renderLangPart('to')}
-            </div>
-        );
-    }
-    private renderLangPart(dir: string) {
-        const langCode = this.props[dir];
-        if (langCode === 'isv') {
+interface ILangPart {
+    dir: string;
+    lang: string;
+    onSelect: (lang: string) => void;
+}
+
+const LangPart: React.FC<ILangPart> =
+    ({lang, dir, onSelect}: ILangPart) => {
+        if (lang === 'isv') {
             return (
-                <div className={'langItem isv'}>
-                    <label className={'langItem'}>Interslavic</label>
+                <div className={'lang-selector__isv'}>
+                    Interslavic
                 </div>
             );
         }
         return (
-            <div className={'langItem another'}>
-                <Selector
-                    options={languageList}
-                    value={langCode}
-                    onSelect={(langCode: string) => {
-                        if (dir === 'from') {
-                            this.props.onSelect(langCode, this.props.to);
-                        }
-                        if (dir === 'to') {
-                            this.props.onSelect(this.props.from, langCode);
-                        }
-                    }}
+            <Selector
+                className={'lang-selector__another'}
+                options={languageList}
+                value={lang}
+                onSelect={(value: string) => {
+                    if (dir === 'from') {
+                        onSelect(value);
+                    }
+                    if (dir === 'to') {
+                        onSelect(value);
+                    }
+                }}
+            />
+        );
+    };
+
+const LangSelectorInternal: React.FC<ILangSelectorInternalProps> =
+    ({from, to, onSelect}: ILangSelectorInternalProps) => {
+        return (
+            <div className={'lang-selector'}>
+                <LangPart
+                    dir={'from'}
+                    lang={from}
+                    onSelect={(value) => onSelect(value, to)}
+                />
+                <button
+                    type={'button'}
+                    aria-label={'Change translation direction'}
+                    className={'lang-selector__change-dir-button'}
+                    onClick={() => onSelect(to, from)}
+                >
+                    ⇄
+                </button>
+                <LangPart
+                    dir={'to'}
+                    lang={to}
+                    onSelect={(value) => onSelect(to, value)}
                 />
             </div>
         );
-    }
-}
+    };
 
 function mapStateToProps({lang}) {
     return { ...lang };
@@ -125,4 +135,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LangSelector);
+export const LangSelector = connect(mapStateToProps, mapDispatchToProps)(LangSelectorInternal);

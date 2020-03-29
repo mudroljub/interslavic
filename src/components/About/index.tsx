@@ -11,7 +11,7 @@ export const About: React.FC =
 
         return (
             <div className={'about'}>
-                <div className={'aboutContent'}>
+                <div className={'about-container'}>
                     <h4>{t('aboutSmallTitle')}</h4>
                     <div className={'common'}>
                         {t('aboutUsingFrom')} <a target={'_blank'} href={source}>{source}</a>

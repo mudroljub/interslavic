@@ -1,3 +1,5 @@
+@import "src/index";
+
 .lineSelector {
   position: relative;
   display: flex;
@@ -13,6 +15,7 @@
     transition: margin-left 0.1s ease-in-out;
     border-radius: .35rem;
     height: 40px;
+    box-shadow: $shadow;
   }
 
   .item {

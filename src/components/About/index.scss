@@ -21,7 +21,7 @@
   }
 }
 
-.aboutContent {
+.about-container {
   max-width: 1024px;
   width: 100%;
   padding: 15px;
@@ -30,7 +30,7 @@
 }
 
 @media (min-width: 1040px) {
-  .aboutContent {
+  .about-container {
     padding-right: 5px;
     padding-left: calc(100vw - 100% + 5px);
   }
